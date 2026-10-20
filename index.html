@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora Barber — Premium Grooming, Pretoria</title>
+<meta name="description" content="Book haircuts, beard trims and grooming appointments at Nexora Barber in Pretoria. Demo booking site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#book">Skip to booking</a>
+<header class="nav" id="navbar">
+  <div class="wrap nav-in">
+    <a href="#home" class="logo"><span class="mark">N</span>Nexora <b>Barber</b></a>
+    <nav class="links" id="navLinks" aria-label="Main">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#barbers">Barbers</a><a href="#gallery">Gallery</a><a href="#book">Book</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="#book" class="btn btn-p nav-cta">Book Appointment</a>
+    <button class="burger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile" id="mobileMenu">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#barbers">Barbers</a><a href="#gallery">Gallery</a><a href="#book">Book</a><a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-in">
+    <div>
+      <h1>Book Your Next Haircut in Minutes</h1>
+      <p class="lead">Pick your barber, choose a service and lock in a time that suits you. Nexora holds the chair.</p>
+      <div class="actions"><a href="#book" class="btn btn-p btn-l">Book Appointment</a><a href="#services" class="btn btn-g btn-l">View Services</a></div>
+      <dl class="stats">
+        <div><dt>Barbers</dt><dd>12</dd></div><div><dt>Avg. rating</dt><dd>4.9</dd></div><div><dt>Chairs booked</dt><dd>8k+</dd></div>
+      </dl>
+      <p class="fine">Sample figures for this demo site, not live data.</p>
+    </div>
+    <div class="hero-vis">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80&auto=format&fit=crop" alt="Barber giving a client a fresh haircut in a modern barbershop">
+      <div class="float f1"><span class="dot"></span><div><b>Chair confirmed</b><small>Sample: Today, 14:30</small></div></div>
+      <div class="float f2"><b class="mono">R150</b><small>Haircut · 45 min</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services"><div class="wrap">
+  <h2>Services &amp; pricing</h2><p class="sub">Prices in South African rand. Tap Book to start your appointment.</p>
+  <div class="grid g3" id="servicesGrid"></div>
+</div></section>
+
+<section class="sec alt" id="barbers"><div class="wrap">
+  <h2>Meet the barbers</h2><p class="sub">Six chairs you can book here. Profiles are demo content.</p>
+  <div class="grid g3" id="barbersGrid"></div>
+</div></section>
+
+<section class="sec" id="book"><div class="wrap">
+  <h2>Book your appointment</h2>
+  <p class="notice">Demo site: bookings are saved only in this browser. They are not sent to a barber or any real booking system.</p>
+  <div class="book-layout">
+    <form class="card form" id="bookingForm" novalidate>
+      <h3 id="formTitle">Your details</h3>
+      <div class="row">
+        <div class="fg"><label for="custName">Full name</label><input id="custName" name="custName" type="text" autocomplete="name" placeholder="e.g. Lerato Dlamini" required><p class="err" id="custName-err" hidden></p></div>
+        <div class="fg"><label for="custPhone">Mobile number</label><input id="custPhone" name="custPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 082 123 4567" required><p class="err" id="custPhone-err" hidden></p></div>
+      </div>
+      <div class="row">
+        <div class="fg"><label for="barberSelect">Barber</label><select id="barberSelect" name="barberSelect" required><option value="">Select a barber</option></select><p class="err" id="barberSelect-err" hidden></p></div>
+        <div class="fg"><label for="serviceSelect">Service</label><select id="serviceSelect" name="serviceSelect" required><option value="">Select a service</option></select><p class="err" id="serviceSelect-err" hidden></p></div>
+      </div>
+      <div class="row">
+        <div class="fg"><label for="apptDate">Date</label><input id="apptDate" name="apptDate" type="date" required><p class="err" id="apptDate-err" hidden></p></div>
+        <div class="fg"><label for="apptTime">Time</label><input id="apptTime" name="apptTime" type="time" required aria-describedby="timeHint"><p class="hint" id="timeHint">Mon–Fri 08:00–18:00, Sat 08:00–15:00, closed Sunday.</p><p class="err" id="apptTime-err" hidden></p></div>
+      </div>
+      <div class="fg"><label for="notes">Special notes <span class="opt">(optional)</span></label><textarea id="notes" name="notes" rows="3" maxlength="300" placeholder="Fade on the sides, tidy the beard line…"></textarea></div>
+      <div class="actions"><button type="submit" class="btn btn-p btn-l grow" id="submitBtn">Book Appointment</button><button type="button" class="btn btn-g btn-l" id="cancelEditBtn" hidden>Cancel edit</button></div>
+    </form>
+    <aside class="card">
+      <h3>Your appointments</h3>
+      <p class="hint">Demo records, saved in this browser only.</p>
+      <div id="appointmentsList" class="appts"></div>
+    </aside>
+  </div>
+</div></section>
+
+<section class="sec alt" id="gallery"><div class="wrap">
+  <h2>Gallery</h2><p class="sub">A look inside the chairs.</p>
+  <div class="gallery" id="galleryGrid"></div>
+</div></section>
+
+<section class="sec" id="testimonials"><div class="wrap">
+  <h2>What Pretoria says</h2><p class="sub">Sample testimonials for demonstration.</p>
+  <div class="grid g3" id="testimonialsGrid"></div>
+</div></section>
+
+<section class="sec alt" id="contact"><div class="wrap">
+  <h2>Visit or get in touch</h2>
+  <div class="contact">
+    <ul class="clist">
+      <li><b>Address</b>142 Church Street, Pretoria Central, Pretoria, 0002</li>
+      <li><b>Phone</b>+27 12 345 6789</li>
+      <li><b>Email</b>hello@nexorabarber.co.za</li>
+      <li><b>Business hours</b>Mon–Fri: 08:00–18:00<br>Saturday: 08:00–15:00<br>Sunday: Closed</li>
+      <li class="hint">Demo contact details and map, not independently verified.</li>
+    </ul>
+    <div class="map"><iframe title="Map of Church Street, Pretoria Central" src="https://maps.google.com/maps?q=Church%20Street%2C%20Pretoria%20Central%2C%20Pretoria&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <div><a href="#home" class="logo"><span class="mark">N</span>Nexora <b>Barber</b></a><p class="hint">Modern grooming, booked in minutes.</p></div>
+  <nav aria-label="Footer"><a href="#services">Services</a><a href="#barbers">Barbers</a><a href="#book">Book</a><a href="#contact">Contact</a></nav>
+  <div class="social"><a href="#" title="Placeholder: add real Instagram link" aria-label="Instagram (placeholder link)">IG</a><a href="#" title="Placeholder: add real Facebook link" aria-label="Facebook (placeholder link)">FB</a><a href="#" title="Placeholder: add real TikTok link" aria-label="TikTok (placeholder link)">TT</a></div>
+  <p class="fine">&copy; <span id="year">2026</span> Nexora Barber. Demo website.</p>
+</div></footer>
+
+<div class="overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <h3 id="modalTitle">Appointment saved</h3>
+    <p class="hint">Demo booking: saved in this browser only, not sent to a real barber.</p>
+    <div id="modalDetails" class="mdetails"></div>
+    <button class="btn btn-p btn-block" id="modalCloseBtn" type="button">Done</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
